@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    pull_policy: never
+    container_name: buyu-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: buyu
+      POSTGRES_USER: buyu_user
+      POSTGRES_PASSWORD: buyu_password
+    ports:
+      - "5433:5432"
+    volumes:
+      - buyu_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U buyu_user -d buyu"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  buyu_postgres_data:

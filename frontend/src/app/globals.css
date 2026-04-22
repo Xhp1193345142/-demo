@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #f8f5ec;
+  --color-ink: #1c1e1b;
+  --color-muted: #5d6257;
+  --color-surface: rgba(255, 255, 255, 0.7);
+  --color-surface-strong: #fffdf8;
+  --color-accent: #c96c3c;
+  --color-accent-strong: #a85329;
+  --color-forest: #4f6b57;
+  --font-sans-stack: "Avenir Next", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-mono-stack: "SFMono-Regular", "IBM Plex Mono", "Menlo", "Monaco", monospace;
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans-stack);
+  --font-mono: var(--font-mono-stack);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6.5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans-stack);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(201, 108, 60, 0.22);
+}
+
+.grain {
+  background-image: radial-gradient(rgba(28, 30, 27, 0.08) 0.7px, transparent 0.7px);
+  background-size: 12px 12px;
+  opacity: 0.18;
+}
+
+.nebula-canvas {
+  display: block;
+  opacity: 1;
+}
+
+.nebula-overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.1));
+}
+
+@keyframes auth-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-panel-enter {
+  animation: auth-panel-enter 240ms ease-out;
+}
+
+.buyu-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.28) transparent;
+}
+
+.buyu-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.buyu-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.buyu-scrollbar::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.24);
+  background-clip: padding-box;
+}
+
+.buyu-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.38);
+  background-clip: padding-box;
+}
